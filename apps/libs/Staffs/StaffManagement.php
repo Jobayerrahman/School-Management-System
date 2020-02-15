@@ -43,7 +43,7 @@
         //Student Information view
         public function viewdata()
         {
-            $sql ="SELECT * FROM studentinfo ";
+            $sql ="SELECT * FROM staffinfo ";
             $data = parent::connection()->query($sql);
 
             if($data == true)
@@ -59,7 +59,7 @@
         //Single student Data view
         public function viewSingleData($id)
         {
-            $sql ="SELECT * FROM studentinfo where Id='$id'";
+            $sql ="SELECT * FROM staffinfo where Id='$id'";
             $data = parent::connection()->query($sql);
 
             if($data == true)
@@ -76,7 +76,7 @@
         //Update Student Data
         public function updateData($id,$fname,$lname,$contact,$email)
         {
-            $sql = "UPDATE studentinfo SET first_name='$fname', last_name='$lname', email='$email', contact='$contact' WHERE Id='$id'";
+            $sql = "UPDATE staffinfo SET first_name='$fname', last_name='$lname', email='$email', contact='$contact' WHERE Id='$id'";
             $data = parent::connection()->query($sql);
             if($data == true)
             {
@@ -88,8 +88,8 @@
             }
         }
 
-        public function dataDelete($student_id){
-            $sql = "Delete From studentinfo WHERE Id='$student_id'";
+        public function dataDelete($staff_id){
+            $sql = "Delete From staffinfo WHERE Id='$staff_id'";
             $data = parent::connection()->query($sql);
             if($data == true)
             {

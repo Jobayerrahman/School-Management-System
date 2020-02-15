@@ -124,7 +124,7 @@ $(document).ready(function(){
                      $('#last_name').val(data.last_name);  
                      $('#email').val(data.email);  
                      $('#contact').val(data.contact);  
-                     $('#student_id').val(data.Id);  
+                     $('#admin_id').val(data.Id);  
                      $('#update').val("Update");  
                      $('#update_data_Modal').modal('show');  
                 }  

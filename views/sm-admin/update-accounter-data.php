@@ -1,7 +1,7 @@
 <?php  
 include_once dirname(__FILE__). "\..\../autoload.php";
-use apps\libs\Students\StudentManagement;
-$StudentManagement = new StudentManagement;
+use apps\libs\Accounts\AccountManagement;
+$AccountManagement = new AccountManagement;
 ?>
 <?php  
     $id = $_POST['id'];
@@ -9,9 +9,9 @@ $StudentManagement = new StudentManagement;
     $lname = $_POST['lname'];
     $email = $_POST['email'];
     $contact = $_POST['contact'];
-    $data = $StudentManagement-> updateData($id,$fname,$lname,$contact,$email);
+    $data = $AccountManagement-> updateData($id,$fname,$lname,$contact,$email);
     if($data = true)
     {
-        header("location: view-all-student.php");
+        header("location: view-all-accounts.php");
     }
 ?>

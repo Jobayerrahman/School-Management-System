@@ -88,8 +88,8 @@
             }
         }
 
-        public function dataDelete($student_id){
-            $sql = "Delete From teacherinfo WHERE Id='$student_id'";
+        public function dataDelete($teacher_id){
+            $sql = "Delete From teacherinfo WHERE Id='$teacher_id'";
             $data = parent::connection()->query($sql);
             if($data == true)
             {

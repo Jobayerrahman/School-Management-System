@@ -68,9 +68,9 @@
             <div class="modal-content" style="width:600px; height:600px;">
                 <div class="model-header">
                     <button type="button" style="margin-right: 20px;" class="close" data-dismiss="modal">&times;</button>
-                    <h3 class="model-title" style="margin-left: 40px;">Student Details</h3>
+                    <h3 class="model-title" style="margin-left: 40px;">Staff Details</h3>
                 </div>
-                <div class="modal-body" id="student_detail">
+                <div class="modal-body" id="staff_detail">
                 </div>
                 <div></div>
             </div>
@@ -83,7 +83,7 @@
             <div class="modal-content">  
                     <div class="modal-header">  
                         <button type="button" class="close" data-dismiss="modal">&times;</button>  
-                        <h4 class="modal-title">Update Student Info</h4>  
+                        <h4 class="modal-title">Update Staff Info</h4>  
                     </div>  
                     <div class="modal-body">  
                         <form method="post" id="update_form">  
@@ -99,7 +99,7 @@
                             <label>Contact</label>  
                             <input type="text" name="contact" id="contact" class="form-control" />  
                             <br />  
-                            <input type="hidden" name="student_id" id="student_id" />  
+                            <input type="hidden" name="staff_id" id="staff_id" />  
                             <input type="submit" name="submit" id="update" value="Update" class="btn btn-success" />  
                         </form>  
                     </div>  
@@ -113,18 +113,18 @@
 <script>
 $(document).ready(function(){  
       $(document).on('click', '.edit_data', function(){  
-           var student_id = $(this).attr("id");  
+           var staff_id = $(this).attr("id");  
            $.ajax({  
-                url:"fetch-student-data.php",  
+                url:"fetch-staff-data.php",  
                 method:"POST",  
-                data:{student_id:student_id},  
+                data:{staff_id:staff_id},  
                 dataType:"json",  
                 success:function(data){  
                      $('#first_name').val(data.first_name);  
                      $('#last_name').val(data.last_name);  
                      $('#email').val(data.email);  
                      $('#contact').val(data.contact);  
-                     $('#student_id').val(data.Id);  
+                     $('#staff_id').val(data.Id);  
                      $('#update').val("Update");  
                      $('#update_data_Modal').modal('show');  
                 }  
@@ -150,15 +150,15 @@ $(document).ready(function(){
            }  
            else  
            {   
-               var student_id=$('#student_id').val();
+               var staff_id=$('#staff_id').val();
                var first_name=$('#first_name').val();
                var last_name=$('#last_name').val();
                var email=$('#email').val();
                var contact=$('#contact').val();
                 $.ajax({  
-                     url:"update-student-data.php",  
+                     url:"update-staff-data.php",  
                      method:"POST",  
-                     data:{id: student_id, fname: first_name, lname: last_name, email: email, contact: contact},  
+                     data:{id: staff_id, fname: first_name, lname: last_name, email: email, contact: contact},  
                      beforeSend:function(){  
                           $('#update').val("updating");  
                      }, 
@@ -170,15 +170,15 @@ $(document).ready(function(){
       });
 
     $(document).on('click', '.view_data', function(){  
-        var student_id = $(this).attr("id");  
-        if(student_id != '')  
+        var staff_id = $(this).attr("id");  
+        if(staff_id != '')  
         {  
             $.ajax({  
-                url:"view-single-student.php",  
+                url:"view-single-staff.php",  
                 method:"POST",  
-                data:{student_id:student_id},  
+                data:{staff_id:staff_id},  
                 success:function(data){   
-                    $('#student_detail').html(data);
+                    $('#staff_detail').html(data);
                     $('#dataModal').modal('show');
                 }  
             });  

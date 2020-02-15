@@ -1,11 +1,11 @@
 <?php
     include_once dirname(__FILE__). "\..\../autoload.php";
-    use apps\libs\Students\StudentManagement;
-    $StudentManagement = new StudentManagement; 
-    $student_id = $_GET['id'];
-    if(isset($student_id))  
+    use apps\libs\Teachers\TeacherManagement;
+    $TeacherManagement = new TeacherManagement; 
+    $teacher_id = $_GET['id'];
+    if(isset($teacher_id))  
     {  
-        $data = $StudentManagement-> dataDelete($student_id);
-        header("Location: view-all-student.php");
+        $data = $TeacherManagement-> dataDelete($teacher_id);
+        header("Location: view-all-teacher.php");
     }
 ?>
